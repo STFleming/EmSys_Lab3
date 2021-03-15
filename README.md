@@ -1,6 +1,15 @@
 # EmSys_Lab3
 
 
+## The temperature sensor
+
+### wiring diagram
+
+### datasheet
+https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf
+
+### Arduino Library
+
 
 ## Data transfer protocol formats 
 
