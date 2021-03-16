@@ -157,17 +157,25 @@ class LetESP32
 	                flushLET();		
 	    }
 
-        // TODO: Add rate limiters to the binary and JSON sending
         void sendJSON(String &str) {
-             _client.send(str);
+            // block til we can send
+            while(_time_last_transfer + _rate_limit > millis()) { }
+            _client.send(str);
+            _time_last_transfer = millis();
+
         }
 
         void sendJSON(char* str) {
-             _client.send(str);
+            while(_time_last_transfer + _rate_limit > millis()) { }
+            _client.send(str);
+            _time_last_transfer = millis();
         }
 
         void sendBIN(temp_buffer_t *t) {
-                _client.sendBinary((char *)(t), sizeof(temp_buffer_t));
+            while(_time_last_transfer + _rate_limit > millis()) { }
+            _client.sendBinary((char *)(t), sizeof(temp_buffer_t));
+            _time_last_transfer = millis();
+            
         }
 
 	    void flushLET() {
@@ -187,6 +195,7 @@ class LetESP32
        buffer_t _trace;
 	   WebsocketsClient _client;
        unsigned long _time_last_pulse;
+       unsigned long _time_last_transfer;
        const unsigned long _rate_limit = 2000; // need to wait at least 2 seconds between flushes
 
  	   // Timer hardware registers
