@@ -27,10 +27,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="4.2678529"
-     inkscape:cx="103.13202"
+     inkscape:cx="153.94748"
      inkscape:cy="127.58838"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g1443"
      showgrid="false"
      units="in"
      fit-margin-top="0"
@@ -39,7 +39,7 @@
      fit-margin-bottom="0"
      inkscape:window-width="1918"
      inkscape:window-height="1057"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0" />
   <metadata
@@ -881,13 +881,13 @@
       <text
          transform="scale(1.0445681,0.95733347)"
          id="text5271-1-75"
-         y="42.548981"
-         x="51.089893"
+         y="41.707134"
+         x="42.840328"
          style="font-style:normal;font-weight:normal;font-size:2.83069086px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.17691818"
          xml:space="preserve"><tspan
-           style="font-size:1.41111112px;stroke-width:0.17691818"
-           y="42.548981"
-           x="51.089893"
+           style="font-size:3.17499995px;stroke-width:0.17691818"
+           y="41.707134"
+           x="42.840328"
            id="tspan5269-5-3"
            sodipodi:role="line">DS18B20</tspan></text>
     </g>
