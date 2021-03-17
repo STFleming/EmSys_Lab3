@@ -32,28 +32,6 @@ struct buffer_t {
 };
 #pragma pop(1)
 
-// ======== LAB 3 Binary protocol ============
-
-#pragma pack(1)
-struct temp_t {
-	uint16_t t;
-	uint16_t id;
-};	
-#pragma pop(1)
-
-// temp buffer type
-#pragma pack(1)
-struct temp_buffer_t {
-        char ident[8]; // dotDevice identifiers are 8 chars -- 64bits
-        uint16_t cmd;
-        uint16_t avr; // the average temp
-        temp_t buff[16];
-};
-#pragma pop(1)
-
-// ==============================================
-
-
 
 // display callback event from websocket connection
 void letesp32_onEventsCallback(WebsocketsEvent event, String data) {
@@ -162,7 +140,6 @@ class LetESP32
             while(_time_last_transfer + _rate_limit > millis()) { }
             _client.send(str);
             _time_last_transfer = millis();
-
         }
 
         void sendJSON(char* str) {
@@ -171,11 +148,10 @@ class LetESP32
             _time_last_transfer = millis();
         }
 
-        void sendBIN(temp_buffer_t *t) {
+        void sendBIN(char *t) {
             while(_time_last_transfer + _rate_limit > millis()) { }
-            _client.sendBinary((char *)(t), sizeof(temp_buffer_t));
+            _client.sendBinary(t, 76);
             _time_last_transfer = millis();
-            
         }
 
 	    void flushLET() {
