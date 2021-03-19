@@ -11,6 +11,7 @@ Similarly to Lab 2, we will use the logbook from Lab 1 for Lab 3. Please do the 
 * Make a directory called ``Lab3/`` in the root directory of your repository
 * Make a file ``Lab3/README.md``. This file is where you will write about your experiments and results
 * Make a directory ``Lab3/src``. This directory will contain the source code for your various experiments; it is up to you to keep this directory organised and use it to support what you write in ``Lab3/README.md``
+* Make a file ``Lab3/CONTRIBUTIONS.md`` that outlines what each member of the group contributed to the logbook.
 
 ### Marking and overall structure
 This lab is more open than the previous labs. You first need to develop a working temperature sensor that sends data in a format that the web server can understand. After that, you will perform your experiments to optimise the power consumption of your device. The marks are roughly split like this:
