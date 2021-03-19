@@ -91,7 +91,7 @@ float temp_in_c;
 
 void loop() {
     sensors.requestTemperatures();
-    temp_in_c = senosrs.getTempCByIndex(0);    
+    temp_in_c = sensors.getTempCByIndex(0);    
 }
 ```
 
