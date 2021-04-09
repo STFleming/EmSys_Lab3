@@ -35,7 +35,7 @@ Your TinyPico will communicate with the central lab server to periodically send 
 * An average ([arithmetic mean](https://en.wikipedia.org/wiki/Arithmetic_mean)) of those 16 temperature measurements
 
 The server expects this payload to be in either one of two formats: a JSON format (like what we used in Lab 1 for the dotDevice commands); or a more efficient binary protocol. These protocols are outlined in section __Data transfer protocol formats__.
-                                                                                                        Your device must take 16 readings in a 30-second window, and __must__ transmit to the server a payload of temperature data _precicely every_ 30 seconds. The server will track these payloads' delivery, and an indicator will show if payloads are arriving too frequently or infrequently.
+                                                                                                        Your device must take 16 readings in a 30-second window, and __must__ transmit to the server a payload of temperature data _precisely every_ 30 seconds. The server will track these payloads' delivery, and an indicator will show if payloads are arriving too frequently or infrequently.
 
 The actual measurements within the 30-second window can be spaced however you like. You could, for instance, capture them all as fast as possible at the start of the 30 seconds or space them out evenly over the entire 30 seconds. The choice is yours, but the timestamps associated with each reading must be accurate.
 
@@ -70,7 +70,7 @@ __Installation of the libraries__: You don't need to do anything. They should be
 
 ### DallasTemperature library basic use
 
-Create a`OneWire` and `DallasTemperature` objects outside of your `setup()` and `loop()` functions.
+Create `OneWire` and `DallasTemperature` objects outside of your `setup()` and `loop()` functions.
 _The oneWire object needs to be told our sensor is connected to pin 26_.
 
 ```C
@@ -95,13 +95,13 @@ float temp_in_c;
 
 void loop() {
     sensors.requestTemperatures();
-    temp_in_c = senosrs.getTempCByIndex(0);    
+    temp_in_c = sensors.getTempCByIndex(0);    
 }
 ```
 
 This command takes an index to the sensor, in our case 0, as we only have one sensor on our system. (_If you are interested, the OneWire protocol is quite interesting, as it can have multiple sensors connected to a single pin_).
 
-The command will return a 32-bit floating point number of the temperature in celcius.
+The command will return a 32-bit floating point number of the temperature in celsius.
 
 ## Data transfer protocol formats 
 
@@ -114,7 +114,7 @@ Each transfer method has a function in ``LetESP32.h`` to help with transferring 
 
 I would probably recommend starting with the JSON protocol first and moving onto the binary protocol later when you feel confident.
 
-__Timestamp format__: For each of the 16 values recorded, we need a timestamp when they occurred in the 30 seconds since the last transmission. The units for the timestamps should be __miliseconds__. For example, if we have timestamp one, ``1150``, and timestamp two, ``1155``, then five milliseconds will have elapsed between timestamp one and two.
+__Timestamp format__: For each of the 16 values recorded, we need a timestamp when they occurred in the 30 seconds since the last transmission. The units for the timestamps should be __milliseconds__. For example, if we have timestamp one, ``1150``, and timestamp two, ``1155``, then five milliseconds will have elapsed between timestamp one and two.
 
 ### JSON based protocol
 
@@ -189,7 +189,7 @@ __Fixed point notation__: In the protocol set out above, the __average__ value a
 
 ![](imgs/fixed_point.svg)
 
-We are not very concerned with the precision of our temperature measurements, and so an excellent quick way to convert the floating-point value that is produced by `senosrs.getTempCByIndex(0);` to fixed-point can be found [[here](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)]. Use the `float_to_fixed()` function.
+We are not very concerned with the precision of our temperature measurements, and so an excellent quick way to convert the floating-point value that is produced by `sensors.getTempCByIndex(0);` to fixed-point can be found [[here](https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/)]. Use the `float_to_fixed()` function.
 
 ## Remote pages
 
