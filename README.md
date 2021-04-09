@@ -4,6 +4,10 @@ In Lab 3, you get to design a low-powered wireless temperature sensor network no
 You will configure your TinyPico device to read data from a DS18B20 temperature sensor, collect the data, average the data, and then send it to the central server, where the server will render it on a web page. 
 __This project aims to make your device consume as little power as possible, so it can last off a battery for as long as possible when deployed in the field.__
 
+### Bugs and workarounds
+
+* In the current version of LetESP32.h there is a call to ```Serial.begin(115200)`` that was accidentally left in for debugging purposes. This means that calling ``Serial.begin()`` in your ``setup()`` can cause some issues. If you are using the LetESP32.h library then it is fine to call ``Serial.print()`` without calling ``Serial.begin()``.
+
 ### Logbook
 
 Similarly to Lab 2, we will use the logbook from Lab 1 for Lab 3. Please do the following to your current git logbook repository:
