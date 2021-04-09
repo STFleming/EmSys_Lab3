@@ -218,3 +218,4 @@ To get power measurements, you need to submit your `.ino` file to me. Please sen
 * Investigate ESP32 deep sleep modes, and google tutorials on this. Deep sleep modes are, by far the most critical way to save power.
 * Look into how to save power specifically for the TinyPico device; again, some googling research is required here.
 
+* When using deep sleep: if you send data then immediately go to sleep, you may sleep the system before the data has fully had a chance to send. If you are finding your data is not always sending, add a small delay after sending but defore you go to sleep. 
